@@ -4,15 +4,16 @@
 \alias{whitestripe}
 \title{Performs White Stripe of T1 or T2 Images}
 \usage{
-whitestripe(img, type = c("T1", "T2", "last", "largest"), breaks = 2000,
-  whitestripe.width = 0.05, whitestripe.width.l = whitestripe.width,
+whitestripe(img, type = c("T1", "T2", "FA", "MD", "first", "last", "largest"),
+  breaks = 2000, whitestripe.width = 0.05,
+  whitestripe.width.l = whitestripe.width,
   whitestripe.width.u = whitestripe.width, arr.ind = FALSE,
   verbose = TRUE, stripped = FALSE, slices = NULL, ...)
 }
 \arguments{
-\item{img}{Image (T1 or T2).  Array or object of class nifti}
+\item{img}{Image (T1, T2, FA, or MD).  Array or object of class nifti}
 
-\item{type}{T1 or T2 image whitestripe}
+\item{type}{T1, T2, FA, or MD image whitestripe}
 
 \item{breaks}{Number of breaks passed to \code{\link{hist}}}
 
@@ -53,13 +54,23 @@ will not rerun \code{\link{make_img_voi}}.
 }
 \examples{
 \dontrun{
-if (download_img_data()){
-t1 = readNIfTI(system.file("T1Strip.nii.gz", package="WhiteStripe"))
+library(WhiteStripe)
+lib.loc = tempdir()
+if (WhiteStripe::download_img_data(lib.loc = lib.loc)){
+library(oro.nifti)
+set.seed(1)
+t1 = readNIfTI(system.file("T1Strip.nii.gz", package="WhiteStripe",
+lib.loc = lib.loc))
 t1.ind = whitestripe(t1, "T1")
+set.seed(2)
+t1_2 = readNIfTI(system.file("T1Strip.nii.gz", package="WhiteStripe",
+lib.loc = lib.loc))
+t1_2.ind = whitestripe(t1_2, "T1") 
 t1.mask = whitestripe_ind_to_mask(t1, t1.ind$whitestripe.ind)
 t1.mask[t1.mask == 0] = NA
 orthographic(t1, t1.mask, col.y="red")
-t2 = readNIfTI(system.file("T2Strip.nii.gz", package="WhiteStripe"))
+t2 = readNIfTI(system.file("T2Strip.nii.gz", package="WhiteStripe",
+lib.loc = lib.loc))
 t2.ind = whitestripe(t2, "T2")
 t2.mask = whitestripe_ind_to_mask(t2, t2.ind$whitestripe.ind)
 t2.mask[t2.mask == 0] = NA
