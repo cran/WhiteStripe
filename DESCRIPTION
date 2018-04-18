@@ -2,8 +2,8 @@ Package: WhiteStripe
 Type: Package
 Title: White Matter Normalization for Magnetic Resonance Images using
         WhiteStripe
-Version: 2.3.0
-Date: 2018-01-24
+Version: 2.3.1
+Date: 2018-04-18
 Author: R. Taki Shinohara, John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Shinohara (2014) <DOI:10.1016/j.nicl.2014.08.008>
@@ -20,7 +20,8 @@ BugReports: https://github.com/muschellij2/WhiteStripe/issues
 RoxygenNote: 6.0.1.9000
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
+Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2018-01-30 04:23:15 UTC; johnmuschelli
+Packaged: 2018-04-18 19:17:31 UTC; johnmuschelli
 Repository: CRAN
-Date/Publication: 2018-01-30 11:35:53 UTC
+Date/Publication: 2018-04-18 23:14:21 UTC

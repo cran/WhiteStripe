@@ -1,9 +1,17 @@
-## ----dl_data-------------------------------------------------------------
-library(WhiteStripe)
-download_img_data()
+## ----dl_data, eval = FALSE-----------------------------------------------
+#  library(WhiteStripe)
+#  download_img_data()
 
-## ----get_data------------------------------------------------------------
-files = ws_img_data()
+## ----dl_data_run, echo = FALSE, eval = TRUE------------------------------
+lib.loc = tempdir() 
+library(WhiteStripe)
+download_img_data(lib.loc = lib.loc)
+
+## ----get_data, eval = FALSE----------------------------------------------
+#  files = ws_img_data()
+
+## ----get_data_run, echo = FALSE, eval = TRUE-----------------------------
+files = ws_img_data(lib.loc = lib.loc)
 
 ## ----t1------------------------------------------------------------------
 library(oro.nifti)
