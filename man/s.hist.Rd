@@ -3,8 +3,8 @@
 \docType{data}
 \name{s.hist}
 \alias{s.hist}
-\title{smoothed_histogram}
-\format{A GAM from mgcv for x and y from histograms}
+\title{Smoothed histogram of image}
+\format{A GAM from \code{mgcv} for x and y from histograms}
 \usage{
 s.hist
 }
