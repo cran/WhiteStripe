@@ -94,6 +94,10 @@ whitestripe <- function(
   whitestripe.width.u = whitestripe.width,
   arr.ind = FALSE, verbose = TRUE,
   stripped = FALSE, slices = NULL, ...)  {
+  
+  if (is.character(img)) {
+    img = neurobase::check_nifti(img)
+  }
   if (verbose) {
     message(paste0("Making Image VOI\n"))
   }
@@ -119,6 +123,13 @@ whitestripe <- function(
   x.in = img.hist$mids
   x.in = x.in[!is.na(y.in)]
   y.in = y.in[!is.na(y.in)]
+  if (min(abs(img.voi)) <= 1 && stripped) {
+    warning(
+      paste0("Stripped data has very small, but > 0 values, 
+                   probably rounding needed, such as ",
+             "img[abs(img) <= 1] = 0")
+    )
+  }
   type = match.arg(type)
   stopifnot(length(type) == 1)
   if (verbose) {

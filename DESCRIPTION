@@ -2,11 +2,20 @@ Package: WhiteStripe
 Type: Package
 Title: White Matter Normalization for Magnetic Resonance Images using
         WhiteStripe
-Version: 2.3.2
-Date: 2019-09-26
-Author: R. Taki Shinohara, John Muschelli
-Maintainer: John Muschelli <muschellij2@gmail.com>
-Description: Shinohara (2014) <DOI:10.1016/j.nicl.2014.08.008>
+Version: 2.4.0
+Date: 2021-04-07
+Authors@R: c(
+    person(given = "R. Taki",
+       family = "Shinohara",
+       email = "russell.shinohara@pennmedicine.upenn.edu",
+       role = c("aut")),
+    person(given = "John",
+       family = "Muschelli",
+       email = "muschellij2@gmail.com",
+       role = c("aut", "cre"),
+       comment = c(ORCID = "0000-0001-6469-1750"))
+    )
+Description: Shinohara (2014) <doi:10.1016/j.nicl.2014.08.008>
     introduced 'WhiteStripe', an intensity-based normalization of T1 
     and T2 images, where normal 
     appearing white matter performs well, but requires segmentation.
@@ -15,14 +24,18 @@ Description: Shinohara (2014) <DOI:10.1016/j.nicl.2014.08.008>
     template and uses histogram-based methods.
 License: GPL-3
 Depends: R (>= 2.10), methods
-Imports: graphics, stats, utils, oro.nifti (>= 0.5.0), mgcv
+Imports: graphics, stats, utils, oro.nifti (>= 0.5.0), mgcv, neurobase
 LazyData: true
 BugReports: https://github.com/muschellij2/WhiteStripe/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Encoding: UTF-8
+LazyDataCompression: xz
 NeedsCompilation: no
-Packaged: 2019-10-01 04:18:18 UTC; johnmuschelli
+Packaged: 2021-04-07 14:47:09 UTC; johnmuschelli
+Author: R. Taki Shinohara [aut],
+  John Muschelli [aut, cre] (<https://orcid.org/0000-0001-6469-1750>)
+Maintainer: John Muschelli <muschellij2@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-10-01 13:00:02 UTC
+Date/Publication: 2021-04-07 15:30:03 UTC
